@@ -44,6 +44,7 @@ ELSE
     INSERT INTO fine VALUES(rollno, CURDATE(), fine_amt); 
 END IF; 
 END; 
+
 // 
 
 DELIMITER ; 
