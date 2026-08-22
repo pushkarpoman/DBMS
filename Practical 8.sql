@@ -12,6 +12,7 @@ for each row
 begin 
 insert into Library_Audit values(new.rollno,new.name,new.nameofbook); 
 end 
+ 
 // 
 
 delimiter ; 
