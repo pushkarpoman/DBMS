@@ -12,6 +12,7 @@ name varchar(90),
 address varchar(90));
 
 delimiter // 
+	
 create procedure n1(in rno1 int) 
 begin 
 declare rno2 int; 
