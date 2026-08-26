@@ -49,6 +49,7 @@ RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
 -- FULL JOIN THROTUGH LEFT RIGHT JOIN AND UNION OF THEM
 
+
 SELECT Customers.CustomerID, Customers.CustomerName, Orders.OrderID, Orders.Amount 
 FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID 
 UNION 
