@@ -1,0 +1,44 @@
+use classroom
+
+db.student.insertOne({name: "Jenil", age: 20, branch: "CSE", course: "DBMS", mode: "offline", paid: true, amount: 2000 })
+
+db.student.insertMany(
+[
+	{
+		name: "Jenil",
+		age: 20,
+		branch: "CSE",
+		course: "MySQL",
+		mode: "offline",
+		paid: true,
+		amount: 2000	
+	},
+
+	{
+		name: "Zaid",
+		age: 19,
+		branch: "MBBS",
+		course: "Psychology",
+		mode: "offline",
+		paid: true,
+		amount: 2500
+	}
+	]
+)
+
+
+db.student.find().pretty()
+
+db.student.updateOne({name: "Jenil"}, {$set: {age: 21}})
+
+db.student.updateMany ({}, {$set: {year: 2024}})
+
+db.student.deleteOne({name: "Zaid"})
+
+db.student.find({$and: [{branch: "CSE"}, {year: 2024}]}).pretty()
+
+db.student.find({$or: [{course: "MySQL"}, {year: 2024}]}).pretty()
+
+db.student.find({age:{$not: {$gt: 21}}}).pretty()
+
+db.student.find({$nor: [{amount:1500}, {course: "DBMS"}]}).pretty()
