@@ -1,11 +1,11 @@
 use classroom
 
-db.student.insertOne({name: "Jenil", age: 20, branch: "CSE", course: "DBMS", mode: "offline", paid: true, amount: 2000 })
+db.student.insertOne({name: "pushkar", age: 20, branch: "CSE", course: "DBMS", mode: "offline", paid: true, amount: 2000 })
 
 db.student.insertMany(
 [
 	{
-		name: "Jenil",
+		name: "pushkar",
 		age: 20,
 		branch: "CSE",
 		course: "MySQL",
@@ -29,7 +29,7 @@ db.student.insertMany(
 
 db.student.find().pretty()
 
-db.student.updateOne({name: "Jenil"}, {$set: {age: 21}})
+db.student.updateOne({name: "pushkar"}, {$set: {age: 21}})
 
 db.student.updateMany ({}, {$set: {year: 2024}})
 
