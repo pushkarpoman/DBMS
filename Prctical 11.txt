@@ -1,0 +1,39 @@
+use customer
+db.createCollection('Customer');
+
+db.Customer.insertOne({'CustID':'J478', 'Amount':1500, 'Status':'completed'})
+
+db.Customer.insertOne({'CustID':'A124', 'Amount':200, 'Status':'completed'})
+
+db.Customer.insertOne({'CustID':'A150', 'Amount':250, 'Status':'pending'})
+
+db.Customer.insertOne({'CustID':'A150', 'Amount':300, 'Status':'pending'})
+
+db.Customer.insertOne({'CustID':'A201', 'Amount':750, 'Status':'pending'})
+
+db.Customer.find().pretty()
+
+db.Customer.aggregate([{$match:{'Status':'completed'}}])
+
+
+db.Customer.aggregate([{$match:{'Status':'completed','Amount':{$gte:250}}}])
+
+db.Customer.aggregate([{$match:{'Status':'completed'}},{$match:{'Amount':{$gt:250}}}])
+
+db.Customer.aggregate([{$match:{'Status':'completed'}},{$group:{_id:'$CustID','totalAmount':{$sum:'$Amount'}}}])
+
+db.Customer.aggregate([{$match:{'Status':'pending'}},{$group:{_id:'$CustID','minAmount':{$max:'$Amount'}}}])
+
+db.Customer.aggregate([{$match:{'Status':'pending'}},{$group:{_id:'$CustID','avgAmount':{$avg:'$Amount'}}}]).pretty()
+
+db.Customer.aggregate([{$sort:{'CustID':1}}]).pretty()
+
+db.Customer.aggregate([{$sort:{'CustID':-1}}]).pretty()
+
+db.Customer.aggregate([{$skip:1},{$group:{_id:'$CustID','totalAmount':{$sum:'$Amount'}}}])
+
+db.Customer.aggregate([{$limit:2},{$group:{_id:'$CustID','totalAmount':{$sum:'$Amount'}}}])
+
+db.Customer.aggregate([{$limit:4},{$group:{_id:'$CustID','totalAmount':{$first:'$Amount'}}}])
+
+db.Customer.aggregate([{$limit:4},{$group:{_id:'$CustID','totalAmount':{$last:'$Amount'}}}])
