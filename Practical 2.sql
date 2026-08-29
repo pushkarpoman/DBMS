@@ -13,10 +13,10 @@ last_name VARCHAR(50) NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE);
 
 INSERT INTO employees (first_name, last_name, email) 
-VALUES ('Jenil', 'Rathod', 'rjenil@gmail.com');
+VALUES ('pushkar', 'poman', 'pp@gmail.com');
 
 INSERT INTO customers (first_name, last_name, email) 
-VALUES ('Zaid', 'Kharadi', 'kharadiz@gmail.com');
+VALUES ('rugved', 'anda', 'ruguanda@gmail.com');
 
 CREATE VIEW employee_basic_info AS SELECT employee_id, first_name, last_name, email FROM employees; 
 
@@ -26,7 +26,7 @@ SELECT c.first_name AS customer_name, e.first_name AS employee_name, e.email AS 
 FROM customers c 
 JOIN employees e ON c.customer_id = e.employee_id WHERE c.customer_id = 1; 
 
-UPDATE employees SET email = 'rathodjenil@gmail.com'  WHERE employee_id = 1; 
+UPDATE employees SET email = 'pushkar@gmail.com'  WHERE employee_id = 1; 
 
 SELECT * FROM employees;
 
@@ -43,7 +43,7 @@ SELECT * FROM customers;
 INSERT INTO employees (first_name, last_name, email) 
 VALUES 
 ('Sudeep', 'Gupta', 'sudeep.gupta@gmail.com'), 
-('Manas', 'Singh', 'manas.singh@gmail.com'), 
+('Rohan', 'Singh', 'manas.singh@gmail.com'), 
 ('Rohit', 'Verma', 'rohit.verma@gmail.com'), 
 ('Sangita', 'Patel', 'sangita.patel@gmail.com'); 
 
