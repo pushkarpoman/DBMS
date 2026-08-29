@@ -1,0 +1,38 @@
+use map
+
+db.createCollection("books")
+
+db.books.insertOne({'name':'Harry Potter','pages':'100'})
+
+db.books.insertOne({'name':'Percy','pages':'200'})
+
+db.books.insertOne({'name':'X-men','pages':'300'})
+
+db.books.insertOne({'name':'Catwoman','pages':'350'})
+
+db.books.insertOne({'name':'Jerfrey','pages':'250'})
+
+db.books.find().pretty()
+
+var map = function()
+{
+	var category;
+	if(this.pages>=250)
+		category='Big Books';
+	else category='Small Books';
+		emit(category,{name:this.name});
+};
+
+var reduce = function(key, values) 
+{
+	var sum =0;
+	values.forEach(function(doc)
+	{
+		sum = sum+1;
+	});
+	return{books:sum};
+};
+
+var count = db.books.mapReduce(map,reduce, {out:"book_results"});
+
+map> db[count.result].find()
