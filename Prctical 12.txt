@@ -30,6 +30,7 @@ var reduce = function(key, values)
 	{
 		sum = sum+1;
 	});
+
 	return{books:sum};
 };
 
