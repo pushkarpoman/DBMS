@@ -20,8 +20,6 @@ while r <= 9 do
 while l1; 
 END 
 // 
-
-
  DELIMITER ; 
 CALL proc_area(); 
 SELECT * FROM areas;
